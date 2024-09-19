@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GameSync.UI.Login"
+             xmlns:viewModel="clr-namespace:GameSync.ViewModels.Login;assembly=GameSync.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="400"
              Background="White"
              FontSize="24">
 
     <UserControl.DataContext>
-        <local:LoginViewModel />
+        <viewModel:LoginViewModel />
     </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -37,7 +37,7 @@
         <TextBox Name="LoginInput"
             Grid.Column="3"
             Grid.Row="2"
-            Text="{ Binding Login}"
+            Text="{ Binding Login }"
         />
 
         <Label Content="Password:"
@@ -48,6 +48,7 @@
         <TextBox Name="PasswordInput"
             Grid.Column="3"
             Grid.Row="3"
+            
             Text="{ Binding Password }"
         />
 
