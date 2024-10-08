@@ -23,4 +23,24 @@ public partial class LoginView : UserControl
     {
         InitializeComponent();
     }
+
+    private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+    {
+        var textBox = sender as TextBox;
+        if (textBox != null)
+        {
+            var label = (Label)((Grid)textBox.Parent).Children[0];
+            label.Content = label.Content.ToString();
+        }
+    }
+
+    private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+    {
+        var textBox = sender as TextBox;
+        if (textBox != null && string.IsNullOrEmpty(textBox.Text))
+        {
+            var label = (Label)((Grid)textBox.Parent).Children[0];
+            label.Content = label.Content.ToString();
+        }
+    }
 }

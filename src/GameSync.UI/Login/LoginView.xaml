@@ -6,8 +6,16 @@
              xmlns:viewModel="clr-namespace:GameSync.ViewModels.Login;assembly=GameSync.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="400"
-             Background="White"
-             FontSize="24">
+             FontSize="24"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mdi="http://materialdesigninxaml.net/winfx/xaml/icons">
 
     <UserControl.DataContext>
         <viewModel:LoginViewModel />
@@ -15,56 +23,51 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="70.666"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="27*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Login:" 
-            Grid.Column="2"
-            Grid.Row="2"
+        <Label Content="Login:"  Grid.Row="1" Grid.Column="1" 
         />
 
         <TextBox Name="LoginInput"
-            Grid.Column="3"
-            Grid.Row="2"
-            Text="{ Binding Login }"
+            Text="{ Binding Login }" Grid.Row="1" Grid.Column="2"
         />
 
-        <Label Content="Password:"
-            Grid.Column="2"
-            Grid.Row="3"
+        <Label Content="Password:" Grid.Row="3" Grid.Column="1" 
         />
 
         <TextBox Name="PasswordInput"
-            Grid.Column="3"
-            Grid.Row="3"
             
-            Text="{ Binding Password }"
+            Text="{ Binding Password }"  Grid.Row="3" Grid.Column="2"
         />
 
         <Button Name="ClearButton"
-            Content="Clear"
-            Grid.Column="2"
-            Grid.Row="4"
-            Command="{ Binding ClearCommand }"
-        />
+            Command="{ Binding ClearCommand }" 
+                Style="{StaticResource MaterialDesignFlatSecondaryButton}" Grid.Row="5" Grid.Column="1" Margin="5,0,5,0"
+        >
+            <StackPanel Orientation="Horizontal">
+                <md:PackIcon Kind="Delete" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,0"/>
+            </StackPanel>
+        </Button>
 
         <Button Name="LoginButton"
-            Content="Login"
-            Grid.Column="3"
-            Grid.Row="4"
-            MaxWidth="100"
-            Command="{ Binding LoginCommand }"
-        />
+            Command="{ Binding LoginCommand }" Grid.Row="5" Grid.Column="2"
+        >
+            <StackPanel Orientation="Horizontal">
+                <md:PackIcon Kind="Login" Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,0"/>
+                <TextBlock Text="Login" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>
