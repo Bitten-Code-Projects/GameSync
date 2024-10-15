@@ -22,6 +22,7 @@ public class RelayCommand : ICommand
     {
         CanExecuteChanged(this, EventArgs.Empty);
     }
+
     #region ICommand Members
 
     bool ICommand.CanExecute(object parameter)
@@ -30,11 +31,8 @@ public class RelayCommand : ICommand
         {
             return _TargetCanExecuteMethod();
         }
-        if (_TargetExecuteMethod != null)
-        {
-            return true;
-        }
-        return false;
+
+        return _TargetCanExecuteMethod != null;
     }
 
     // Beware - should use weak references if command instance lifetime is longer than lifetime of UI objects that get hooked up to command
@@ -48,6 +46,7 @@ public class RelayCommand : ICommand
             _TargetExecuteMethod();
         }
     }
+
     #endregion
 }
 
@@ -71,6 +70,7 @@ public class RelayCommand<T> : ICommand
     {
         CanExecuteChanged(this, EventArgs.Empty);
     }
+
     #region ICommand Members
 
     bool ICommand.CanExecute(object parameter)
@@ -80,11 +80,8 @@ public class RelayCommand<T> : ICommand
             T tparm = (T)parameter;
             return _TargetCanExecuteMethod(tparm);
         }
-        if (_TargetExecuteMethod != null)
-        {
-            return true;
-        }
-        return false;
+
+        return _TargetCanExecuteMethod != null;
     }
 
     // Beware - should use weak references if command instance lifetime is longer than lifetime of UI objects that get hooked up to command
@@ -98,5 +95,6 @@ public class RelayCommand<T> : ICommand
             _TargetExecuteMethod((T)parameter);
         }
     }
+
     #endregion
 }

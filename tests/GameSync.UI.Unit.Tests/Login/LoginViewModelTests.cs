@@ -19,10 +19,10 @@ public class LoginViewModelTests
         // Assert
         cut.Login
             .Should()
-            .Be("");
+            .Be(string.Empty);
 
         cut.Password
             .Should()
-            .Be("");
+            .Be(string.Empty);
     }
 }

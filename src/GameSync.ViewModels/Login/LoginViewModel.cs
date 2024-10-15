@@ -9,8 +9,8 @@ public class LoginViewModel : INotifyPropertyChanged
 {
     private IGameSyncService _gameSyncService = new GameSyncService();
 
-    private string _login = "";
-    private string _password = "";
+    private string _login = string.Empty;
+    private string _password = string.Empty;
 
     public ICommand ClearCommand { get; set; }
     public ICommand LoginCommand { get; set; }
@@ -49,13 +49,13 @@ public class LoginViewModel : INotifyPropertyChanged
 
     private void OnClear()
     {
-        Login = "";
-        Password = "";
+        Login = string.Empty;
+        Password = string.Empty;
     }
 
     private void OnLogin()
     {
-        var _user = _gameSyncService.Login(
+        var user = _gameSyncService.Login(
             UserName.CreateFrom(Login),
             Models.Users.ValueObjects.Password.CreateFrom(Password)
         );

@@ -3,9 +3,7 @@ public class UserName
 {
     public string Value { get; private set; }
 
-    private UserName(
-        string value
-    )
+    private UserName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {

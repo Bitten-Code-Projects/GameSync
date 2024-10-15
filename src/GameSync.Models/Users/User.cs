@@ -10,27 +10,10 @@ public class User
     public User(
         UserId userId,
         UserName userName,
-        Password password
-    )
+        Password password)
     {
-        SetUserIdOrThrowException(userId);
-        SetUserNameOrThrowExcetpion(userName);
+        UserId = userId ?? throw new ArgumentNullException(nameof(userId));
+        UserName = userName ?? throw new ArgumentNullException(nameof(userName));
         Password = password;
-    }
-
-    private void SetUserIdOrThrowException(UserId userId)
-    {
-        if (userId is null)
-            throw new ArgumentNullException(nameof(userId));
-
-        UserId = userId;
-    }
-
-    private void SetUserNameOrThrowExcetpion(UserName userName)
-    {
-        if (userName is null)
-            throw new ArgumentNullException(nameof(userName));
-
-        UserName = userName;
     }
 }

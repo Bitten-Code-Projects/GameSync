@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GameSync.UI.Login;
+
 /// <summary>
 /// Interaction logic for LoginView.xaml
 /// </summary>

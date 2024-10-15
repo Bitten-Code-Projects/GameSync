@@ -6,13 +6,12 @@ public class GameSyncService : IGameSyncService
 {
     public User Login(UserName userName, Password password)
     {
-        if (userName.Value == "admin" &&  password.Value == "adminadmin")
+        if (userName.Value == "admin" && password.Value == "adminadmin")
         {
             return new User(
                 UserId.CreateUnique(),
                 UserName.CreateFrom("admin"),
-                Password.CreateFrom("adminadmin")
-            );
+                Password.CreateFrom("adminadmin"));
         }
 
         throw new Exception("Authentication exception");

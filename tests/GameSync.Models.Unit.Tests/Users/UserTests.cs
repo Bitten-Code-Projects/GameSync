@@ -9,10 +9,9 @@ public class UserTests
     {
         // Arrange
         var createUser = () => new User(
-            null,
-            UserName.CreateFrom("abc"),
-            Password.CreateFrom("12312323")
-        );
+            userId: null!,
+            userName: UserName.CreateFrom("abc"),
+            password: Password.CreateFrom("12312323"));
 
         // Act & Assert
         createUser
