@@ -1,6 +1,7 @@
 ﻿using GameSync.ViewModels.Login;
 
 namespace GameSync.ViewModels.Unit.Tests.Login;
+
 public class LoginViewModelTests
 {
     [Fact]
